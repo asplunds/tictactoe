@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+
+body, html {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    font-family: 'Varela Round', sans-serif;
+}
+#game {
+    --size: min(80vh, 80vw);
+    height: var(--size);
+    width: var(--size);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5px;
+}
+#game .tile {
+    background: rgb(255, 236, 152);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.397);
+    transition: box-shadow .1s ease-out;
+    position: relative;
+    cursor: pointer;
+}
+#game .tile:hover {
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.4);
+}
+#game .tile.winner {
+    background: rgb(238, 203, 45);
+}
+#game .tile::before {
+    font-family: 'Varela Round', sans-serif;
+    position: absolute;
+    height: 85%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#game .tile.cross::before {
+    content: "X";
+}
+#game .tile.ring::before {
+    content: "O";
+}
+#game-status {
+    text-align: center;
+    margin: 10px 0;
+}
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+    </style>
+</head>
+<body>
+    <main>
+        <h1 id="game-status"></h1>
+        <div id="game">
+            
+        </div>
+    </main>
+
+    <script src="game.js"></script>
+
+
+</body>
+</html>
